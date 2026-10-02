@@ -1,0 +1,4 @@
+{
+  "renderedCases": 1,
+  "kinds": ["auth-application", "json-request", "json-response"]
+}

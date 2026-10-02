@@ -1,0 +1,71 @@
+[
+  {
+    "id": "behavior-1",
+    "operationId": "scrape",
+    "method": "POST",
+    "path": "/scrape",
+    "signature": "{\"errors\":[],\"method\":\"POST\",\"nullable\":false,\"pagination\":null,\"parameters\":[],\"request\":[\"json\"],\"response\":[\"json\"],\"security\":[{\"ApiKeyAuth\":[]}],\"streaming\":false}",
+    "kinds": [
+      "auth-application",
+      "json-request",
+      "json-response"
+    ],
+    "parameters": [],
+    "request": {
+      "mediaType": "application/json",
+      "kind": "json",
+      "value": {
+        "url": "https://example.com",
+        "headers": [
+          "X-Header: some-random-header"
+        ],
+        "retryNum": 1,
+        "geo": "eu",
+        "proxy": "http://user:pw@host:port",
+        "followRedirects": 0,
+        "timeout": 8,
+        "textNotExpected": [
+          "random-captcha-text-which-might-appear"
+        ],
+        "statusNotExpected": [
+          403,
+          429
+        ],
+        "extractor": "function(input, cheerio) {\n    let $ = cheerio.load(input);\n return $('h1.title').text(); } "
+      }
+    },
+    "response": {
+      "mediaType": "application/json",
+      "kind": "json",
+      "value": {
+        "info": {
+          "statusCode": 200,
+          "finalUrl": "https://example.com/url",
+          "headers": [
+            "content-type: xxx",
+            "header2: val2"
+          ]
+        },
+        "body": "<html><body><h1>Hello World!</h1></body></html>"
+      }
+    },
+    "security": [
+      {
+        "ApiKeyAuth": []
+      }
+    ],
+    "securitySchemes": [
+      {
+        "name": "ApiKeyAuth",
+        "fieldName": "apiKeyAuth",
+        "scheme": {
+          "type": "apiKey",
+          "in": "header",
+          "paramName": "X-RapidAPI-Key"
+        },
+        "genericBearerFieldName": "apiKeyAuth"
+      }
+    ],
+    "pagination": null
+  }
+]

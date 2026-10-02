@@ -1,0 +1,233 @@
+{
+  "cases": [
+    {
+      "id": "scrape:scrape",
+      "operationId": "scrape",
+      "methodName": "scrape",
+      "namespace": [
+        "scrape"
+      ],
+      "mode": "normal",
+      "owner": "scrape",
+      "arguments": {
+        "url": "https://example.com",
+        "headers": [
+          "X-Header: some-random-header"
+        ],
+        "retry_num": 1,
+        "geo": "eu",
+        "proxy": "http://user:pw@host:port",
+        "follow_redirects": 0,
+        "timeout": 8,
+        "text_not_expected": [
+          "random-captcha-text-which-might-appear"
+        ],
+        "status_not_expected": [
+          403,
+          429
+        ],
+        "extractor": "function(input, cheerio) {\n    let $ = cheerio.load(input);\n return $('h1.title').text(); } "
+      },
+      "argumentOrder": [
+        "url",
+        "headers",
+        "retry_num",
+        "geo",
+        "proxy",
+        "follow_redirects",
+        "timeout",
+        "text_not_expected",
+        "status_not_expected",
+        "extractor"
+      ],
+      "response": {
+        "kind": "json",
+        "expected": {
+          "info": {
+            "statusCode": 200,
+            "finalUrl": "https://example.com/url",
+            "headers": [
+              "content-type: xxx",
+              "header2: val2"
+            ]
+          },
+          "body": "<html><body><h1>Hello World!</h1></body></html>"
+        },
+        "byteLength": 0
+      }
+    },
+    {
+      "id": "scrapeJs:scrape_js",
+      "operationId": "scrapeJs",
+      "methodName": "scrape_js",
+      "namespace": [
+        "scrapeJs"
+      ],
+      "mode": "normal",
+      "owner": "scrape_js",
+      "arguments": {
+        "url": "https://example.com",
+        "wait_for_selector": "h1.some-class",
+        "post_wait_time": 5,
+        "dump_iframe": "icims_content_iframe",
+        "wait_for_selector_iframe": ".iCIMS_PagingBatch",
+        "extractor_target_iframe": true,
+        "headers": [
+          "X-Header: some-random-header"
+        ],
+        "retry_num": 1,
+        "geo": "eu",
+        "proxy": "http://user:pw@host:port",
+        "timeout": 8,
+        "text_not_expected": [
+          "random-captcha-text-which-might-appear"
+        ],
+        "status_not_expected": [
+          403,
+          429
+        ],
+        "block_images": true,
+        "block_media": true,
+        "screenshot": true,
+        "catch_ajax_headers_url_mask": "https://example.com",
+        "viewport": {
+          "width": 1920,
+          "height": 1080,
+          "deviceScaleFactor": 3,
+          "hasTouch": false,
+          "isMobile": false,
+          "isLandscape": false
+        },
+        "extractor": "function(input, cheerio) {\n    let $ = cheerio.load(input);\n return $('h1.title').text(); } "
+      },
+      "argumentOrder": [
+        "url",
+        "wait_for_selector",
+        "post_wait_time",
+        "dump_iframe",
+        "wait_for_selector_iframe",
+        "extractor_target_iframe",
+        "headers",
+        "retry_num",
+        "geo",
+        "proxy",
+        "timeout",
+        "text_not_expected",
+        "status_not_expected",
+        "block_images",
+        "block_media",
+        "screenshot",
+        "catch_ajax_headers_url_mask",
+        "viewport",
+        "extractor"
+      ],
+      "response": {
+        "kind": "json",
+        "expected": {
+          "info": {
+            "statusCode": 200,
+            "finalUrl": "https://example.com/url",
+            "catchedAjax": {
+              "url": "https://example.com/api/data.json",
+              "method": "GET",
+              "headers": [
+                "content-type: xxx",
+                "header2: val2"
+              ],
+              "body": "<html><body><h1>Hello World!</h1></body></html>",
+              "bodyIframe": "<html><body><h1>Iframe content</h1></body></html>",
+              "status": 200,
+              "responseHeaders": {
+                "content-type": "application/json"
+              }
+            },
+            "headers": [
+              "content-type: xxx",
+              "header2: val2"
+            ]
+          },
+          "body": "<html><body><h1>Hello World!</h1></body></html>"
+        },
+        "byteLength": 0
+      }
+    },
+    {
+      "id": "scrapeJsV2:scrape_js_v2",
+      "operationId": "scrapeJsV2",
+      "methodName": "scrape_js_v2",
+      "namespace": [
+        "scrapeJs"
+      ],
+      "mode": "normal",
+      "owner": "scrape_js",
+      "arguments": {
+        "url": "https://example.com",
+        "wait_for_selector": "h1.some-class",
+        "post_wait_time": 5,
+        "headers": [
+          "X-Header: some-random-header"
+        ],
+        "retry_num": 1,
+        "geo": "eu",
+        "proxy": "http://user:pw@host:port",
+        "timeout": 8,
+        "text_not_expected": [
+          "random-captcha-text-which-might-appear"
+        ],
+        "status_not_expected": [
+          403,
+          429
+        ],
+        "block_images": true,
+        "block_media": true,
+        "screenshot": true,
+        "extractor": "function(input, cheerio) {\n    let $ = cheerio.load(input);\n return $('h1.title').text(); } "
+      },
+      "argumentOrder": [
+        "url",
+        "wait_for_selector",
+        "post_wait_time",
+        "headers",
+        "retry_num",
+        "geo",
+        "proxy",
+        "timeout",
+        "text_not_expected",
+        "status_not_expected",
+        "block_images",
+        "block_media",
+        "screenshot",
+        "extractor"
+      ],
+      "response": {
+        "kind": "json",
+        "expected": {
+          "info": {
+            "statusCode": 200,
+            "finalUrl": "https://example.com/url",
+            "catchedAjax": {
+              "url": "https://example.com/api/data.json",
+              "method": "GET",
+              "headers": [
+                "content-type: xxx",
+                "header2: val2"
+              ],
+              "body": "<html><body><h1>Hello World!</h1></body></html>",
+              "bodyIframe": "<html><body><h1>Iframe content</h1></body></html>",
+              "status": 200,
+              "responseHeaders": {
+                "content-type": "application/json"
+              }
+            },
+            "headers": [
+              "content-type: xxx",
+              "header2: val2"
+            ]
+          },
+          "body": "<html><body><h1>Hello World!</h1></body></html>"
+        },
+        "byteLength": 0
+      }
+    }
+  ]
+}

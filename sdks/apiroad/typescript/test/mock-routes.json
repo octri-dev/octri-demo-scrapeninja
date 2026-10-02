@@ -1,0 +1,503 @@
+[
+  {
+    "operationId": "scrapeJsV2",
+    "summary": "Scrapes a URL with the newer real Chrome browser engine to render JavaScript-dependent pages. Use this endpoint when browser rendering is required, including for sites protected by services such as Cloudflare, Datadome, Kasada, or PerimeterX. Access is available only through APIRoad.",
+    "method": "POST",
+    "pathTemplate": "/v2/scrape-js",
+    "regexSource": "^/v2/scrape-js$",
+    "pathParams": [],
+    "pathParameters": [],
+    "queryParameters": [],
+    "literalQuery": [],
+    "headerParameters": [],
+    "cookieParameters": [],
+    "specificity": {
+      "staticSegments": 2,
+      "parameterSegments": 0,
+      "totalSegments": 2,
+      "staticCharacterCount": 11,
+      "constrainedParameters": 0,
+      "literalQueryParameters": 0
+    },
+    "originalIndex": 2,
+    "requestModes": [
+      {
+        "mediaType": "application/json",
+        "encoderKind": "json",
+        "required": true,
+        "bodyShape": "fields",
+        "requiredFields": ["url"],
+        "fields": [
+          {
+            "wireName": "url",
+            "repeated": false,
+            "partKind": "scalar",
+            "contentType": null
+          },
+          {
+            "wireName": "waitForSelector",
+            "repeated": false,
+            "partKind": "scalar",
+            "contentType": null
+          },
+          {
+            "wireName": "postWaitTime",
+            "repeated": false,
+            "partKind": "scalar",
+            "contentType": null
+          },
+          {
+            "wireName": "headers",
+            "repeated": true,
+            "partKind": "scalar",
+            "contentType": null
+          },
+          {
+            "wireName": "retryNum",
+            "repeated": false,
+            "partKind": "scalar",
+            "contentType": null
+          },
+          {
+            "wireName": "geo",
+            "repeated": false,
+            "partKind": "scalar",
+            "contentType": null
+          },
+          {
+            "wireName": "proxy",
+            "repeated": false,
+            "partKind": "scalar",
+            "contentType": null
+          },
+          {
+            "wireName": "timeout",
+            "repeated": false,
+            "partKind": "scalar",
+            "contentType": null
+          },
+          {
+            "wireName": "textNotExpected",
+            "repeated": true,
+            "partKind": "scalar",
+            "contentType": null
+          },
+          {
+            "wireName": "statusNotExpected",
+            "repeated": true,
+            "partKind": "scalar",
+            "contentType": null
+          },
+          {
+            "wireName": "blockImages",
+            "repeated": false,
+            "partKind": "scalar",
+            "contentType": null
+          },
+          {
+            "wireName": "blockMedia",
+            "repeated": false,
+            "partKind": "scalar",
+            "contentType": null
+          },
+          {
+            "wireName": "screenshot",
+            "repeated": false,
+            "partKind": "scalar",
+            "contentType": null
+          },
+          {
+            "wireName": "extractor",
+            "repeated": false,
+            "partKind": "scalar",
+            "contentType": null
+          }
+        ],
+        "example": {
+          "url": "https://example.com",
+          "waitForSelector": "h1.some-class",
+          "postWaitTime": 5,
+          "headers": ["X-Header: some-random-header"],
+          "retryNum": 1,
+          "geo": "eu",
+          "proxy": "http://user:pw@host:port",
+          "timeout": 8,
+          "textNotExpected": ["random-captcha-text-which-might-appear"],
+          "statusNotExpected": [403, 429],
+          "blockImages": true,
+          "blockMedia": true,
+          "screenshot": true,
+          "extractor": "function(input, cheerio) {\n    let $ = cheerio.load(input);\n return $('h1.title').text(); } "
+        }
+      }
+    ],
+    "responseModes": [
+      {
+        "statusCode": "200",
+        "mediaType": "application/json",
+        "decoderKind": "json",
+        "example": {
+          "info": {
+            "statusCode": 200,
+            "finalUrl": "https://example.com/url",
+            "catchedAjax": {
+              "url": "https://example.com/api/data.json",
+              "method": "GET",
+              "headers": ["content-type: xxx", "header2: val2"],
+              "body": "<html><body><h1>Hello World!</h1></body></html>",
+              "bodyIframe": "<html><body><h1>Iframe content</h1></body></html>",
+              "status": 200,
+              "responseHeaders": {
+                "content-type": "application/json"
+              }
+            },
+            "headers": ["content-type: xxx", "header2: val2"]
+          },
+          "body": "<html><body><h1>Hello World!</h1></body></html>"
+        },
+        "bodyBase64": null,
+        "exampleSource": "synthesized",
+        "authoredExampleSource": "none",
+        "hasAuthoredExample": false
+      }
+    ],
+    "defaultResponseIndex": 0,
+    "streamSelector": null,
+    "errorResponses": {}
+  },
+  {
+    "operationId": "scrapeJs",
+    "summary": "Scrapes a URL with a real Chrome browser engine to render JavaScript-dependent pages. Use this endpoint when `/scrape` does not retrieve the required page content; set `waitForSelector` or `postWaitTime` when you need to control when page loading is considered complete. The response includes the rendered HTML and browser metadata.",
+    "method": "POST",
+    "pathTemplate": "/scrape-js",
+    "regexSource": "^/scrape-js$",
+    "pathParams": [],
+    "pathParameters": [],
+    "queryParameters": [],
+    "literalQuery": [],
+    "headerParameters": [],
+    "cookieParameters": [],
+    "specificity": {
+      "staticSegments": 1,
+      "parameterSegments": 0,
+      "totalSegments": 1,
+      "staticCharacterCount": 9,
+      "constrainedParameters": 0,
+      "literalQueryParameters": 0
+    },
+    "originalIndex": 1,
+    "requestModes": [
+      {
+        "mediaType": "application/json",
+        "encoderKind": "json",
+        "required": true,
+        "bodyShape": "fields",
+        "requiredFields": ["url"],
+        "fields": [
+          {
+            "wireName": "url",
+            "repeated": false,
+            "partKind": "scalar",
+            "contentType": null
+          },
+          {
+            "wireName": "waitForSelector",
+            "repeated": false,
+            "partKind": "scalar",
+            "contentType": null
+          },
+          {
+            "wireName": "postWaitTime",
+            "repeated": false,
+            "partKind": "scalar",
+            "contentType": null
+          },
+          {
+            "wireName": "dumpIframe",
+            "repeated": false,
+            "partKind": "scalar",
+            "contentType": null
+          },
+          {
+            "wireName": "waitForSelectorIframe",
+            "repeated": false,
+            "partKind": "scalar",
+            "contentType": null
+          },
+          {
+            "wireName": "extractorTargetIframe",
+            "repeated": false,
+            "partKind": "scalar",
+            "contentType": null
+          },
+          {
+            "wireName": "headers",
+            "repeated": true,
+            "partKind": "scalar",
+            "contentType": null
+          },
+          {
+            "wireName": "retryNum",
+            "repeated": false,
+            "partKind": "scalar",
+            "contentType": null
+          },
+          {
+            "wireName": "geo",
+            "repeated": false,
+            "partKind": "scalar",
+            "contentType": null
+          },
+          {
+            "wireName": "proxy",
+            "repeated": false,
+            "partKind": "scalar",
+            "contentType": null
+          },
+          {
+            "wireName": "timeout",
+            "repeated": false,
+            "partKind": "scalar",
+            "contentType": null
+          },
+          {
+            "wireName": "textNotExpected",
+            "repeated": true,
+            "partKind": "scalar",
+            "contentType": null
+          },
+          {
+            "wireName": "statusNotExpected",
+            "repeated": true,
+            "partKind": "scalar",
+            "contentType": null
+          },
+          {
+            "wireName": "blockImages",
+            "repeated": false,
+            "partKind": "scalar",
+            "contentType": null
+          },
+          {
+            "wireName": "blockMedia",
+            "repeated": false,
+            "partKind": "scalar",
+            "contentType": null
+          },
+          {
+            "wireName": "screenshot",
+            "repeated": false,
+            "partKind": "scalar",
+            "contentType": null
+          },
+          {
+            "wireName": "catchAjaxHeadersUrlMask",
+            "repeated": false,
+            "partKind": "scalar",
+            "contentType": null
+          },
+          {
+            "wireName": "viewport",
+            "repeated": false,
+            "partKind": "json",
+            "contentType": null
+          },
+          {
+            "wireName": "extractor",
+            "repeated": false,
+            "partKind": "scalar",
+            "contentType": null
+          }
+        ],
+        "example": {
+          "url": "https://example.com",
+          "waitForSelector": "h1.some-class",
+          "postWaitTime": 5,
+          "dumpIframe": "icims_content_iframe",
+          "waitForSelectorIframe": ".iCIMS_PagingBatch",
+          "extractorTargetIframe": true,
+          "headers": ["X-Header: some-random-header"],
+          "retryNum": 1,
+          "geo": "eu",
+          "proxy": "http://user:pw@host:port",
+          "timeout": 8,
+          "textNotExpected": ["random-captcha-text-which-might-appear"],
+          "statusNotExpected": [403, 429],
+          "blockImages": true,
+          "blockMedia": true,
+          "screenshot": true,
+          "catchAjaxHeadersUrlMask": "https://example.com",
+          "viewport": {
+            "width": 1920,
+            "height": 1080,
+            "deviceScaleFactor": 3,
+            "hasTouch": false,
+            "isMobile": false,
+            "isLandscape": false
+          },
+          "extractor": "function(input, cheerio) {\n    let $ = cheerio.load(input);\n return $('h1.title').text(); } "
+        }
+      }
+    ],
+    "responseModes": [
+      {
+        "statusCode": "200",
+        "mediaType": "application/json",
+        "decoderKind": "json",
+        "example": {
+          "info": {
+            "statusCode": 200,
+            "finalUrl": "https://example.com/url",
+            "catchedAjax": {
+              "url": "https://example.com/api/data.json",
+              "method": "GET",
+              "headers": ["content-type: xxx", "header2: val2"],
+              "body": "<html><body><h1>Hello World!</h1></body></html>",
+              "bodyIframe": "<html><body><h1>Iframe content</h1></body></html>",
+              "status": 200,
+              "responseHeaders": {
+                "content-type": "application/json"
+              }
+            },
+            "headers": ["content-type: xxx", "header2: val2"]
+          },
+          "body": "<html><body><h1>Hello World!</h1></body></html>"
+        },
+        "bodyBase64": null,
+        "exampleSource": "synthesized",
+        "authoredExampleSource": "none",
+        "hasAuthoredExample": false
+      }
+    ],
+    "defaultResponseIndex": 0,
+    "streamSelector": null,
+    "errorResponses": {}
+  },
+  {
+    "operationId": "scrape",
+    "summary": "Scrapes a URL using Chrome browser TLS fingerprinting without executing JavaScript. Use this endpoint for pages that do not require client-side rendering, and set `headers`, `geo`, or `proxy` to customize the request. The response includes the HTML body and request metadata.",
+    "method": "POST",
+    "pathTemplate": "/scrape",
+    "regexSource": "^/scrape$",
+    "pathParams": [],
+    "pathParameters": [],
+    "queryParameters": [],
+    "literalQuery": [],
+    "headerParameters": [],
+    "cookieParameters": [],
+    "specificity": {
+      "staticSegments": 1,
+      "parameterSegments": 0,
+      "totalSegments": 1,
+      "staticCharacterCount": 6,
+      "constrainedParameters": 0,
+      "literalQueryParameters": 0
+    },
+    "originalIndex": 0,
+    "requestModes": [
+      {
+        "mediaType": "application/json",
+        "encoderKind": "json",
+        "required": true,
+        "bodyShape": "fields",
+        "requiredFields": ["url"],
+        "fields": [
+          {
+            "wireName": "url",
+            "repeated": false,
+            "partKind": "scalar",
+            "contentType": null
+          },
+          {
+            "wireName": "headers",
+            "repeated": true,
+            "partKind": "scalar",
+            "contentType": null
+          },
+          {
+            "wireName": "retryNum",
+            "repeated": false,
+            "partKind": "scalar",
+            "contentType": null
+          },
+          {
+            "wireName": "geo",
+            "repeated": false,
+            "partKind": "scalar",
+            "contentType": null
+          },
+          {
+            "wireName": "proxy",
+            "repeated": false,
+            "partKind": "scalar",
+            "contentType": null
+          },
+          {
+            "wireName": "followRedirects",
+            "repeated": false,
+            "partKind": "scalar",
+            "contentType": null
+          },
+          {
+            "wireName": "timeout",
+            "repeated": false,
+            "partKind": "scalar",
+            "contentType": null
+          },
+          {
+            "wireName": "textNotExpected",
+            "repeated": true,
+            "partKind": "scalar",
+            "contentType": null
+          },
+          {
+            "wireName": "statusNotExpected",
+            "repeated": true,
+            "partKind": "scalar",
+            "contentType": null
+          },
+          {
+            "wireName": "extractor",
+            "repeated": false,
+            "partKind": "scalar",
+            "contentType": null
+          }
+        ],
+        "example": {
+          "url": "https://example.com",
+          "headers": ["X-Header: some-random-header"],
+          "retryNum": 1,
+          "geo": "eu",
+          "proxy": "http://user:pw@host:port",
+          "followRedirects": 0,
+          "timeout": 8,
+          "textNotExpected": ["random-captcha-text-which-might-appear"],
+          "statusNotExpected": [403, 429],
+          "extractor": "function(input, cheerio) {\n    let $ = cheerio.load(input);\n return $('h1.title').text(); } "
+        }
+      }
+    ],
+    "responseModes": [
+      {
+        "statusCode": "200",
+        "mediaType": "application/json",
+        "decoderKind": "json",
+        "example": {
+          "info": {
+            "statusCode": 200,
+            "finalUrl": "https://example.com/url",
+            "headers": ["content-type: xxx", "header2: val2"]
+          },
+          "body": "<html><body><h1>Hello World!</h1></body></html>"
+        },
+        "bodyBase64": null,
+        "exampleSource": "synthesized",
+        "authoredExampleSource": "none",
+        "hasAuthoredExample": false
+      }
+    ],
+    "defaultResponseIndex": 0,
+    "streamSelector": null,
+    "errorResponses": {}
+  }
+]

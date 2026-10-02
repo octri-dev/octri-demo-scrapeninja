@@ -1,0 +1,15 @@
+{
+  "mode": "offline mock; no live API calls",
+  "baseline": {
+    "url": "https://scrapeninja.apiroad.net/scrape",
+    "apiroad_header": null,
+    "rapidapi_header": "demo-not-a-secret",
+    "outcome": "401 from mock"
+  },
+  "apiroad": {
+    "url": "https://scrapeninja.apiroad.net/scrape",
+    "apiroad_header": "demo-not-a-secret",
+    "rapidapi_header": null,
+    "outcome": "accepted by mock"
+  }
+}

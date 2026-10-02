@@ -1,0 +1,1766 @@
+{
+  "schemaTitle": "ScrapeNinja APIRoad — unofficial Octri demo",
+  "schemaVersion": "1.0.1-octri-demo",
+  "language": "python",
+  "enumStrategy": "open",
+  "unitTests": "include",
+  "operations": [
+    {
+      "id": "scrape",
+      "wireOperationId": "scrape",
+      "method": "post",
+      "path": "/scrape",
+      "namespace": [
+        "scrape"
+      ],
+      "streams": false,
+      "mode": "normal",
+      "streamSelector": null,
+      "requestMediaType": "application/json",
+      "publicMethods": [
+        {
+          "mode": "normal",
+          "name": "scrape"
+        }
+      ],
+      "requestModes": [
+        {
+          "mediaType": "application/json",
+          "encoderKind": "json",
+          "schemaRef": null,
+          "schemaType": {
+            "type": "object",
+            "format": null,
+            "ref": null,
+            "nullable": false,
+            "items": null,
+            "mapValue": null,
+            "variants": null
+          },
+          "bodyShape": "fields",
+          "fields": [
+            {
+              "name": "url",
+              "required": true,
+              "repeated": false,
+              "partKind": "scalar",
+              "contentType": null
+            },
+            {
+              "name": "headers",
+              "required": false,
+              "repeated": true,
+              "partKind": "scalar",
+              "contentType": null
+            },
+            {
+              "name": "retryNum",
+              "required": false,
+              "repeated": false,
+              "partKind": "scalar",
+              "contentType": null
+            },
+            {
+              "name": "geo",
+              "required": false,
+              "repeated": false,
+              "partKind": "scalar",
+              "contentType": null
+            },
+            {
+              "name": "proxy",
+              "required": false,
+              "repeated": false,
+              "partKind": "scalar",
+              "contentType": null
+            },
+            {
+              "name": "followRedirects",
+              "required": false,
+              "repeated": false,
+              "partKind": "scalar",
+              "contentType": null
+            },
+            {
+              "name": "timeout",
+              "required": false,
+              "repeated": false,
+              "partKind": "scalar",
+              "contentType": null
+            },
+            {
+              "name": "textNotExpected",
+              "required": false,
+              "repeated": true,
+              "partKind": "scalar",
+              "contentType": null
+            },
+            {
+              "name": "statusNotExpected",
+              "required": false,
+              "repeated": true,
+              "partKind": "scalar",
+              "contentType": null
+            },
+            {
+              "name": "extractor",
+              "required": false,
+              "repeated": false,
+              "partKind": "scalar",
+              "contentType": null
+            }
+          ]
+        }
+      ],
+      "responseModes": [
+        {
+          "statusCode": "200",
+          "mediaType": "application/json",
+          "decoderKind": "json",
+          "schemaRef": null,
+          "schemaType": {
+            "type": "object",
+            "format": null,
+            "ref": null,
+            "nullable": false,
+            "items": null,
+            "mapValue": null,
+            "variants": null
+          },
+          "hasAuthoredExample": false,
+          "authoredExampleSource": "none"
+        }
+      ],
+      "errorResponseModes": [],
+      "params": [
+        {
+          "name": "extractor",
+          "in": "body",
+          "required": false,
+          "nullable": false,
+          "type": "string",
+          "wireType": "string",
+          "declaredValue": null,
+          "mediaTypes": [
+            "application/json"
+          ]
+        },
+        {
+          "name": "followRedirects",
+          "in": "body",
+          "required": false,
+          "nullable": false,
+          "type": "integer",
+          "wireType": "integer",
+          "declaredValue": null,
+          "mediaTypes": [
+            "application/json"
+          ]
+        },
+        {
+          "name": "geo",
+          "in": "body",
+          "required": false,
+          "nullable": false,
+          "type": "string",
+          "wireType": "string",
+          "declaredValue": null,
+          "mediaTypes": [
+            "application/json"
+          ]
+        },
+        {
+          "name": "headers",
+          "in": "body",
+          "required": false,
+          "nullable": false,
+          "type": "array",
+          "wireType": "array",
+          "declaredValue": null,
+          "mediaTypes": [
+            "application/json"
+          ]
+        },
+        {
+          "name": "proxy",
+          "in": "body",
+          "required": false,
+          "nullable": false,
+          "type": "string",
+          "wireType": "string",
+          "declaredValue": null,
+          "mediaTypes": [
+            "application/json"
+          ]
+        },
+        {
+          "name": "retryNum",
+          "in": "body",
+          "required": false,
+          "nullable": false,
+          "type": "integer",
+          "wireType": "integer",
+          "declaredValue": null,
+          "mediaTypes": [
+            "application/json"
+          ]
+        },
+        {
+          "name": "statusNotExpected",
+          "in": "body",
+          "required": false,
+          "nullable": false,
+          "type": "array",
+          "wireType": "array",
+          "declaredValue": null,
+          "mediaTypes": [
+            "application/json"
+          ]
+        },
+        {
+          "name": "textNotExpected",
+          "in": "body",
+          "required": false,
+          "nullable": false,
+          "type": "array",
+          "wireType": "array",
+          "declaredValue": null,
+          "mediaTypes": [
+            "application/json"
+          ]
+        },
+        {
+          "name": "timeout",
+          "in": "body",
+          "required": false,
+          "nullable": false,
+          "type": "integer",
+          "wireType": "integer",
+          "declaredValue": null,
+          "mediaTypes": [
+            "application/json"
+          ]
+        },
+        {
+          "name": "url",
+          "in": "body",
+          "required": true,
+          "nullable": false,
+          "type": "string",
+          "wireType": "string",
+          "declaredValue": null,
+          "mediaTypes": [
+            "application/json"
+          ]
+        }
+      ],
+      "bindings": [
+        {
+          "name": "url",
+          "in": "body",
+          "required": true,
+          "nullable": false,
+          "type": "string",
+          "wireType": "string",
+          "declaredValue": null,
+          "mediaTypes": [
+            "application/json"
+          ]
+        },
+        {
+          "name": "headers",
+          "in": "body",
+          "required": false,
+          "nullable": false,
+          "type": "array",
+          "wireType": "array",
+          "declaredValue": null,
+          "mediaTypes": [
+            "application/json"
+          ]
+        },
+        {
+          "name": "retryNum",
+          "in": "body",
+          "required": false,
+          "nullable": false,
+          "type": "integer",
+          "wireType": "integer",
+          "declaredValue": null,
+          "mediaTypes": [
+            "application/json"
+          ]
+        },
+        {
+          "name": "geo",
+          "in": "body",
+          "required": false,
+          "nullable": false,
+          "type": "string",
+          "wireType": "string",
+          "declaredValue": null,
+          "mediaTypes": [
+            "application/json"
+          ]
+        },
+        {
+          "name": "proxy",
+          "in": "body",
+          "required": false,
+          "nullable": false,
+          "type": "string",
+          "wireType": "string",
+          "declaredValue": null,
+          "mediaTypes": [
+            "application/json"
+          ]
+        },
+        {
+          "name": "followRedirects",
+          "in": "body",
+          "required": false,
+          "nullable": false,
+          "type": "integer",
+          "wireType": "integer",
+          "declaredValue": null,
+          "mediaTypes": [
+            "application/json"
+          ]
+        },
+        {
+          "name": "timeout",
+          "in": "body",
+          "required": false,
+          "nullable": false,
+          "type": "integer",
+          "wireType": "integer",
+          "declaredValue": null,
+          "mediaTypes": [
+            "application/json"
+          ]
+        },
+        {
+          "name": "textNotExpected",
+          "in": "body",
+          "required": false,
+          "nullable": false,
+          "type": "array",
+          "wireType": "array",
+          "declaredValue": null,
+          "mediaTypes": [
+            "application/json"
+          ]
+        },
+        {
+          "name": "statusNotExpected",
+          "in": "body",
+          "required": false,
+          "nullable": false,
+          "type": "array",
+          "wireType": "array",
+          "declaredValue": null,
+          "mediaTypes": [
+            "application/json"
+          ]
+        },
+        {
+          "name": "extractor",
+          "in": "body",
+          "required": false,
+          "nullable": false,
+          "type": "string",
+          "wireType": "string",
+          "declaredValue": null,
+          "mediaTypes": [
+            "application/json"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "scrapeJs",
+      "wireOperationId": "scrapeJs",
+      "method": "post",
+      "path": "/scrape-js",
+      "namespace": [
+        "scrapeJs"
+      ],
+      "streams": false,
+      "mode": "normal",
+      "streamSelector": null,
+      "requestMediaType": "application/json",
+      "publicMethods": [
+        {
+          "mode": "normal",
+          "name": "scrapeJs"
+        }
+      ],
+      "requestModes": [
+        {
+          "mediaType": "application/json",
+          "encoderKind": "json",
+          "schemaRef": null,
+          "schemaType": {
+            "type": "object",
+            "format": null,
+            "ref": null,
+            "nullable": false,
+            "items": null,
+            "mapValue": null,
+            "variants": null
+          },
+          "bodyShape": "fields",
+          "fields": [
+            {
+              "name": "url",
+              "required": true,
+              "repeated": false,
+              "partKind": "scalar",
+              "contentType": null
+            },
+            {
+              "name": "waitForSelector",
+              "required": false,
+              "repeated": false,
+              "partKind": "scalar",
+              "contentType": null
+            },
+            {
+              "name": "postWaitTime",
+              "required": false,
+              "repeated": false,
+              "partKind": "scalar",
+              "contentType": null
+            },
+            {
+              "name": "dumpIframe",
+              "required": false,
+              "repeated": false,
+              "partKind": "scalar",
+              "contentType": null
+            },
+            {
+              "name": "waitForSelectorIframe",
+              "required": false,
+              "repeated": false,
+              "partKind": "scalar",
+              "contentType": null
+            },
+            {
+              "name": "extractorTargetIframe",
+              "required": false,
+              "repeated": false,
+              "partKind": "scalar",
+              "contentType": null
+            },
+            {
+              "name": "headers",
+              "required": false,
+              "repeated": true,
+              "partKind": "scalar",
+              "contentType": null
+            },
+            {
+              "name": "retryNum",
+              "required": false,
+              "repeated": false,
+              "partKind": "scalar",
+              "contentType": null
+            },
+            {
+              "name": "geo",
+              "required": false,
+              "repeated": false,
+              "partKind": "scalar",
+              "contentType": null
+            },
+            {
+              "name": "proxy",
+              "required": false,
+              "repeated": false,
+              "partKind": "scalar",
+              "contentType": null
+            },
+            {
+              "name": "timeout",
+              "required": false,
+              "repeated": false,
+              "partKind": "scalar",
+              "contentType": null
+            },
+            {
+              "name": "textNotExpected",
+              "required": false,
+              "repeated": true,
+              "partKind": "scalar",
+              "contentType": null
+            },
+            {
+              "name": "statusNotExpected",
+              "required": false,
+              "repeated": true,
+              "partKind": "scalar",
+              "contentType": null
+            },
+            {
+              "name": "blockImages",
+              "required": false,
+              "repeated": false,
+              "partKind": "scalar",
+              "contentType": null
+            },
+            {
+              "name": "blockMedia",
+              "required": false,
+              "repeated": false,
+              "partKind": "scalar",
+              "contentType": null
+            },
+            {
+              "name": "screenshot",
+              "required": false,
+              "repeated": false,
+              "partKind": "scalar",
+              "contentType": null
+            },
+            {
+              "name": "catchAjaxHeadersUrlMask",
+              "required": false,
+              "repeated": false,
+              "partKind": "scalar",
+              "contentType": null
+            },
+            {
+              "name": "viewport",
+              "required": false,
+              "repeated": false,
+              "partKind": "json",
+              "contentType": null
+            },
+            {
+              "name": "extractor",
+              "required": false,
+              "repeated": false,
+              "partKind": "scalar",
+              "contentType": null
+            }
+          ]
+        }
+      ],
+      "responseModes": [
+        {
+          "statusCode": "200",
+          "mediaType": "application/json",
+          "decoderKind": "json",
+          "schemaRef": null,
+          "schemaType": {
+            "type": "object",
+            "format": null,
+            "ref": null,
+            "nullable": false,
+            "items": null,
+            "mapValue": null,
+            "variants": null
+          },
+          "hasAuthoredExample": false,
+          "authoredExampleSource": "none"
+        }
+      ],
+      "errorResponseModes": [],
+      "params": [
+        {
+          "name": "blockImages",
+          "in": "body",
+          "required": false,
+          "nullable": false,
+          "type": "boolean",
+          "wireType": "boolean",
+          "declaredValue": null,
+          "mediaTypes": [
+            "application/json"
+          ]
+        },
+        {
+          "name": "blockMedia",
+          "in": "body",
+          "required": false,
+          "nullable": false,
+          "type": "boolean",
+          "wireType": "boolean",
+          "declaredValue": null,
+          "mediaTypes": [
+            "application/json"
+          ]
+        },
+        {
+          "name": "catchAjaxHeadersUrlMask",
+          "in": "body",
+          "required": false,
+          "nullable": false,
+          "type": "string",
+          "wireType": "string",
+          "declaredValue": null,
+          "mediaTypes": [
+            "application/json"
+          ]
+        },
+        {
+          "name": "dumpIframe",
+          "in": "body",
+          "required": false,
+          "nullable": false,
+          "type": "string",
+          "wireType": "string",
+          "declaredValue": null,
+          "mediaTypes": [
+            "application/json"
+          ]
+        },
+        {
+          "name": "extractor",
+          "in": "body",
+          "required": false,
+          "nullable": false,
+          "type": "string",
+          "wireType": "string",
+          "declaredValue": null,
+          "mediaTypes": [
+            "application/json"
+          ]
+        },
+        {
+          "name": "extractorTargetIframe",
+          "in": "body",
+          "required": false,
+          "nullable": false,
+          "type": "boolean",
+          "wireType": "boolean",
+          "declaredValue": null,
+          "mediaTypes": [
+            "application/json"
+          ]
+        },
+        {
+          "name": "geo",
+          "in": "body",
+          "required": false,
+          "nullable": false,
+          "type": "string",
+          "wireType": "string",
+          "declaredValue": null,
+          "mediaTypes": [
+            "application/json"
+          ]
+        },
+        {
+          "name": "headers",
+          "in": "body",
+          "required": false,
+          "nullable": false,
+          "type": "array",
+          "wireType": "array",
+          "declaredValue": null,
+          "mediaTypes": [
+            "application/json"
+          ]
+        },
+        {
+          "name": "postWaitTime",
+          "in": "body",
+          "required": false,
+          "nullable": false,
+          "type": "integer",
+          "wireType": "integer",
+          "declaredValue": null,
+          "mediaTypes": [
+            "application/json"
+          ]
+        },
+        {
+          "name": "proxy",
+          "in": "body",
+          "required": false,
+          "nullable": false,
+          "type": "string",
+          "wireType": "string",
+          "declaredValue": null,
+          "mediaTypes": [
+            "application/json"
+          ]
+        },
+        {
+          "name": "retryNum",
+          "in": "body",
+          "required": false,
+          "nullable": false,
+          "type": "integer",
+          "wireType": "integer",
+          "declaredValue": null,
+          "mediaTypes": [
+            "application/json"
+          ]
+        },
+        {
+          "name": "screenshot",
+          "in": "body",
+          "required": false,
+          "nullable": false,
+          "type": "boolean",
+          "wireType": "boolean",
+          "declaredValue": null,
+          "mediaTypes": [
+            "application/json"
+          ]
+        },
+        {
+          "name": "statusNotExpected",
+          "in": "body",
+          "required": false,
+          "nullable": false,
+          "type": "array",
+          "wireType": "array",
+          "declaredValue": null,
+          "mediaTypes": [
+            "application/json"
+          ]
+        },
+        {
+          "name": "textNotExpected",
+          "in": "body",
+          "required": false,
+          "nullable": false,
+          "type": "array",
+          "wireType": "array",
+          "declaredValue": null,
+          "mediaTypes": [
+            "application/json"
+          ]
+        },
+        {
+          "name": "timeout",
+          "in": "body",
+          "required": false,
+          "nullable": false,
+          "type": "integer",
+          "wireType": "integer",
+          "declaredValue": null,
+          "mediaTypes": [
+            "application/json"
+          ]
+        },
+        {
+          "name": "url",
+          "in": "body",
+          "required": true,
+          "nullable": false,
+          "type": "string",
+          "wireType": "string",
+          "declaredValue": null,
+          "mediaTypes": [
+            "application/json"
+          ]
+        },
+        {
+          "name": "viewport",
+          "in": "body",
+          "required": false,
+          "nullable": false,
+          "type": "object",
+          "wireType": "object",
+          "declaredValue": null,
+          "mediaTypes": [
+            "application/json"
+          ]
+        },
+        {
+          "name": "waitForSelector",
+          "in": "body",
+          "required": false,
+          "nullable": false,
+          "type": "string",
+          "wireType": "string",
+          "declaredValue": null,
+          "mediaTypes": [
+            "application/json"
+          ]
+        },
+        {
+          "name": "waitForSelectorIframe",
+          "in": "body",
+          "required": false,
+          "nullable": false,
+          "type": "string",
+          "wireType": "string",
+          "declaredValue": null,
+          "mediaTypes": [
+            "application/json"
+          ]
+        }
+      ],
+      "bindings": [
+        {
+          "name": "url",
+          "in": "body",
+          "required": true,
+          "nullable": false,
+          "type": "string",
+          "wireType": "string",
+          "declaredValue": null,
+          "mediaTypes": [
+            "application/json"
+          ]
+        },
+        {
+          "name": "waitForSelector",
+          "in": "body",
+          "required": false,
+          "nullable": false,
+          "type": "string",
+          "wireType": "string",
+          "declaredValue": null,
+          "mediaTypes": [
+            "application/json"
+          ]
+        },
+        {
+          "name": "postWaitTime",
+          "in": "body",
+          "required": false,
+          "nullable": false,
+          "type": "integer",
+          "wireType": "integer",
+          "declaredValue": null,
+          "mediaTypes": [
+            "application/json"
+          ]
+        },
+        {
+          "name": "dumpIframe",
+          "in": "body",
+          "required": false,
+          "nullable": false,
+          "type": "string",
+          "wireType": "string",
+          "declaredValue": null,
+          "mediaTypes": [
+            "application/json"
+          ]
+        },
+        {
+          "name": "waitForSelectorIframe",
+          "in": "body",
+          "required": false,
+          "nullable": false,
+          "type": "string",
+          "wireType": "string",
+          "declaredValue": null,
+          "mediaTypes": [
+            "application/json"
+          ]
+        },
+        {
+          "name": "extractorTargetIframe",
+          "in": "body",
+          "required": false,
+          "nullable": false,
+          "type": "boolean",
+          "wireType": "boolean",
+          "declaredValue": null,
+          "mediaTypes": [
+            "application/json"
+          ]
+        },
+        {
+          "name": "headers",
+          "in": "body",
+          "required": false,
+          "nullable": false,
+          "type": "array",
+          "wireType": "array",
+          "declaredValue": null,
+          "mediaTypes": [
+            "application/json"
+          ]
+        },
+        {
+          "name": "retryNum",
+          "in": "body",
+          "required": false,
+          "nullable": false,
+          "type": "integer",
+          "wireType": "integer",
+          "declaredValue": null,
+          "mediaTypes": [
+            "application/json"
+          ]
+        },
+        {
+          "name": "geo",
+          "in": "body",
+          "required": false,
+          "nullable": false,
+          "type": "string",
+          "wireType": "string",
+          "declaredValue": null,
+          "mediaTypes": [
+            "application/json"
+          ]
+        },
+        {
+          "name": "proxy",
+          "in": "body",
+          "required": false,
+          "nullable": false,
+          "type": "string",
+          "wireType": "string",
+          "declaredValue": null,
+          "mediaTypes": [
+            "application/json"
+          ]
+        },
+        {
+          "name": "timeout",
+          "in": "body",
+          "required": false,
+          "nullable": false,
+          "type": "integer",
+          "wireType": "integer",
+          "declaredValue": null,
+          "mediaTypes": [
+            "application/json"
+          ]
+        },
+        {
+          "name": "textNotExpected",
+          "in": "body",
+          "required": false,
+          "nullable": false,
+          "type": "array",
+          "wireType": "array",
+          "declaredValue": null,
+          "mediaTypes": [
+            "application/json"
+          ]
+        },
+        {
+          "name": "statusNotExpected",
+          "in": "body",
+          "required": false,
+          "nullable": false,
+          "type": "array",
+          "wireType": "array",
+          "declaredValue": null,
+          "mediaTypes": [
+            "application/json"
+          ]
+        },
+        {
+          "name": "blockImages",
+          "in": "body",
+          "required": false,
+          "nullable": false,
+          "type": "boolean",
+          "wireType": "boolean",
+          "declaredValue": null,
+          "mediaTypes": [
+            "application/json"
+          ]
+        },
+        {
+          "name": "blockMedia",
+          "in": "body",
+          "required": false,
+          "nullable": false,
+          "type": "boolean",
+          "wireType": "boolean",
+          "declaredValue": null,
+          "mediaTypes": [
+            "application/json"
+          ]
+        },
+        {
+          "name": "screenshot",
+          "in": "body",
+          "required": false,
+          "nullable": false,
+          "type": "boolean",
+          "wireType": "boolean",
+          "declaredValue": null,
+          "mediaTypes": [
+            "application/json"
+          ]
+        },
+        {
+          "name": "catchAjaxHeadersUrlMask",
+          "in": "body",
+          "required": false,
+          "nullable": false,
+          "type": "string",
+          "wireType": "string",
+          "declaredValue": null,
+          "mediaTypes": [
+            "application/json"
+          ]
+        },
+        {
+          "name": "viewport",
+          "in": "body",
+          "required": false,
+          "nullable": false,
+          "type": "object",
+          "wireType": "object",
+          "declaredValue": null,
+          "mediaTypes": [
+            "application/json"
+          ]
+        },
+        {
+          "name": "extractor",
+          "in": "body",
+          "required": false,
+          "nullable": false,
+          "type": "string",
+          "wireType": "string",
+          "declaredValue": null,
+          "mediaTypes": [
+            "application/json"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "scrapeJsV2",
+      "wireOperationId": "scrapeJsV2",
+      "method": "post",
+      "path": "/v2/scrape-js",
+      "namespace": [
+        "scrapeJs"
+      ],
+      "streams": false,
+      "mode": "normal",
+      "streamSelector": null,
+      "requestMediaType": "application/json",
+      "publicMethods": [
+        {
+          "mode": "normal",
+          "name": "scrapeJsV2"
+        }
+      ],
+      "requestModes": [
+        {
+          "mediaType": "application/json",
+          "encoderKind": "json",
+          "schemaRef": null,
+          "schemaType": {
+            "type": "object",
+            "format": null,
+            "ref": null,
+            "nullable": false,
+            "items": null,
+            "mapValue": null,
+            "variants": null
+          },
+          "bodyShape": "fields",
+          "fields": [
+            {
+              "name": "url",
+              "required": true,
+              "repeated": false,
+              "partKind": "scalar",
+              "contentType": null
+            },
+            {
+              "name": "waitForSelector",
+              "required": false,
+              "repeated": false,
+              "partKind": "scalar",
+              "contentType": null
+            },
+            {
+              "name": "postWaitTime",
+              "required": false,
+              "repeated": false,
+              "partKind": "scalar",
+              "contentType": null
+            },
+            {
+              "name": "headers",
+              "required": false,
+              "repeated": true,
+              "partKind": "scalar",
+              "contentType": null
+            },
+            {
+              "name": "retryNum",
+              "required": false,
+              "repeated": false,
+              "partKind": "scalar",
+              "contentType": null
+            },
+            {
+              "name": "geo",
+              "required": false,
+              "repeated": false,
+              "partKind": "scalar",
+              "contentType": null
+            },
+            {
+              "name": "proxy",
+              "required": false,
+              "repeated": false,
+              "partKind": "scalar",
+              "contentType": null
+            },
+            {
+              "name": "timeout",
+              "required": false,
+              "repeated": false,
+              "partKind": "scalar",
+              "contentType": null
+            },
+            {
+              "name": "textNotExpected",
+              "required": false,
+              "repeated": true,
+              "partKind": "scalar",
+              "contentType": null
+            },
+            {
+              "name": "statusNotExpected",
+              "required": false,
+              "repeated": true,
+              "partKind": "scalar",
+              "contentType": null
+            },
+            {
+              "name": "blockImages",
+              "required": false,
+              "repeated": false,
+              "partKind": "scalar",
+              "contentType": null
+            },
+            {
+              "name": "blockMedia",
+              "required": false,
+              "repeated": false,
+              "partKind": "scalar",
+              "contentType": null
+            },
+            {
+              "name": "screenshot",
+              "required": false,
+              "repeated": false,
+              "partKind": "scalar",
+              "contentType": null
+            },
+            {
+              "name": "extractor",
+              "required": false,
+              "repeated": false,
+              "partKind": "scalar",
+              "contentType": null
+            }
+          ]
+        }
+      ],
+      "responseModes": [
+        {
+          "statusCode": "200",
+          "mediaType": "application/json",
+          "decoderKind": "json",
+          "schemaRef": null,
+          "schemaType": {
+            "type": "object",
+            "format": null,
+            "ref": null,
+            "nullable": false,
+            "items": null,
+            "mapValue": null,
+            "variants": null
+          },
+          "hasAuthoredExample": false,
+          "authoredExampleSource": "none"
+        }
+      ],
+      "errorResponseModes": [],
+      "params": [
+        {
+          "name": "blockImages",
+          "in": "body",
+          "required": false,
+          "nullable": false,
+          "type": "boolean",
+          "wireType": "boolean",
+          "declaredValue": null,
+          "mediaTypes": [
+            "application/json"
+          ]
+        },
+        {
+          "name": "blockMedia",
+          "in": "body",
+          "required": false,
+          "nullable": false,
+          "type": "boolean",
+          "wireType": "boolean",
+          "declaredValue": null,
+          "mediaTypes": [
+            "application/json"
+          ]
+        },
+        {
+          "name": "extractor",
+          "in": "body",
+          "required": false,
+          "nullable": false,
+          "type": "string",
+          "wireType": "string",
+          "declaredValue": null,
+          "mediaTypes": [
+            "application/json"
+          ]
+        },
+        {
+          "name": "geo",
+          "in": "body",
+          "required": false,
+          "nullable": false,
+          "type": "string",
+          "wireType": "string",
+          "declaredValue": null,
+          "mediaTypes": [
+            "application/json"
+          ]
+        },
+        {
+          "name": "headers",
+          "in": "body",
+          "required": false,
+          "nullable": false,
+          "type": "array",
+          "wireType": "array",
+          "declaredValue": null,
+          "mediaTypes": [
+            "application/json"
+          ]
+        },
+        {
+          "name": "postWaitTime",
+          "in": "body",
+          "required": false,
+          "nullable": false,
+          "type": "integer",
+          "wireType": "integer",
+          "declaredValue": null,
+          "mediaTypes": [
+            "application/json"
+          ]
+        },
+        {
+          "name": "proxy",
+          "in": "body",
+          "required": false,
+          "nullable": false,
+          "type": "string",
+          "wireType": "string",
+          "declaredValue": null,
+          "mediaTypes": [
+            "application/json"
+          ]
+        },
+        {
+          "name": "retryNum",
+          "in": "body",
+          "required": false,
+          "nullable": false,
+          "type": "integer",
+          "wireType": "integer",
+          "declaredValue": null,
+          "mediaTypes": [
+            "application/json"
+          ]
+        },
+        {
+          "name": "screenshot",
+          "in": "body",
+          "required": false,
+          "nullable": false,
+          "type": "boolean",
+          "wireType": "boolean",
+          "declaredValue": null,
+          "mediaTypes": [
+            "application/json"
+          ]
+        },
+        {
+          "name": "statusNotExpected",
+          "in": "body",
+          "required": false,
+          "nullable": false,
+          "type": "array",
+          "wireType": "array",
+          "declaredValue": null,
+          "mediaTypes": [
+            "application/json"
+          ]
+        },
+        {
+          "name": "textNotExpected",
+          "in": "body",
+          "required": false,
+          "nullable": false,
+          "type": "array",
+          "wireType": "array",
+          "declaredValue": null,
+          "mediaTypes": [
+            "application/json"
+          ]
+        },
+        {
+          "name": "timeout",
+          "in": "body",
+          "required": false,
+          "nullable": false,
+          "type": "integer",
+          "wireType": "integer",
+          "declaredValue": null,
+          "mediaTypes": [
+            "application/json"
+          ]
+        },
+        {
+          "name": "url",
+          "in": "body",
+          "required": true,
+          "nullable": false,
+          "type": "string",
+          "wireType": "string",
+          "declaredValue": null,
+          "mediaTypes": [
+            "application/json"
+          ]
+        },
+        {
+          "name": "waitForSelector",
+          "in": "body",
+          "required": false,
+          "nullable": false,
+          "type": "string",
+          "wireType": "string",
+          "declaredValue": null,
+          "mediaTypes": [
+            "application/json"
+          ]
+        }
+      ],
+      "bindings": [
+        {
+          "name": "url",
+          "in": "body",
+          "required": true,
+          "nullable": false,
+          "type": "string",
+          "wireType": "string",
+          "declaredValue": null,
+          "mediaTypes": [
+            "application/json"
+          ]
+        },
+        {
+          "name": "waitForSelector",
+          "in": "body",
+          "required": false,
+          "nullable": false,
+          "type": "string",
+          "wireType": "string",
+          "declaredValue": null,
+          "mediaTypes": [
+            "application/json"
+          ]
+        },
+        {
+          "name": "postWaitTime",
+          "in": "body",
+          "required": false,
+          "nullable": false,
+          "type": "integer",
+          "wireType": "integer",
+          "declaredValue": null,
+          "mediaTypes": [
+            "application/json"
+          ]
+        },
+        {
+          "name": "headers",
+          "in": "body",
+          "required": false,
+          "nullable": false,
+          "type": "array",
+          "wireType": "array",
+          "declaredValue": null,
+          "mediaTypes": [
+            "application/json"
+          ]
+        },
+        {
+          "name": "retryNum",
+          "in": "body",
+          "required": false,
+          "nullable": false,
+          "type": "integer",
+          "wireType": "integer",
+          "declaredValue": null,
+          "mediaTypes": [
+            "application/json"
+          ]
+        },
+        {
+          "name": "geo",
+          "in": "body",
+          "required": false,
+          "nullable": false,
+          "type": "string",
+          "wireType": "string",
+          "declaredValue": null,
+          "mediaTypes": [
+            "application/json"
+          ]
+        },
+        {
+          "name": "proxy",
+          "in": "body",
+          "required": false,
+          "nullable": false,
+          "type": "string",
+          "wireType": "string",
+          "declaredValue": null,
+          "mediaTypes": [
+            "application/json"
+          ]
+        },
+        {
+          "name": "timeout",
+          "in": "body",
+          "required": false,
+          "nullable": false,
+          "type": "integer",
+          "wireType": "integer",
+          "declaredValue": null,
+          "mediaTypes": [
+            "application/json"
+          ]
+        },
+        {
+          "name": "textNotExpected",
+          "in": "body",
+          "required": false,
+          "nullable": false,
+          "type": "array",
+          "wireType": "array",
+          "declaredValue": null,
+          "mediaTypes": [
+            "application/json"
+          ]
+        },
+        {
+          "name": "statusNotExpected",
+          "in": "body",
+          "required": false,
+          "nullable": false,
+          "type": "array",
+          "wireType": "array",
+          "declaredValue": null,
+          "mediaTypes": [
+            "application/json"
+          ]
+        },
+        {
+          "name": "blockImages",
+          "in": "body",
+          "required": false,
+          "nullable": false,
+          "type": "boolean",
+          "wireType": "boolean",
+          "declaredValue": null,
+          "mediaTypes": [
+            "application/json"
+          ]
+        },
+        {
+          "name": "blockMedia",
+          "in": "body",
+          "required": false,
+          "nullable": false,
+          "type": "boolean",
+          "wireType": "boolean",
+          "declaredValue": null,
+          "mediaTypes": [
+            "application/json"
+          ]
+        },
+        {
+          "name": "screenshot",
+          "in": "body",
+          "required": false,
+          "nullable": false,
+          "type": "boolean",
+          "wireType": "boolean",
+          "declaredValue": null,
+          "mediaTypes": [
+            "application/json"
+          ]
+        },
+        {
+          "name": "extractor",
+          "in": "body",
+          "required": false,
+          "nullable": false,
+          "type": "string",
+          "wireType": "string",
+          "declaredValue": null,
+          "mediaTypes": [
+            "application/json"
+          ]
+        }
+      ]
+    }
+  ],
+  "models": [
+    {
+      "name": "ScrapeJsResponse",
+      "kind": "object",
+      "type": {
+        "type": "object",
+        "format": null,
+        "ref": null,
+        "nullable": false,
+        "items": null,
+        "mapValue": null,
+        "variants": null
+      },
+      "properties": [
+        {
+          "name": "body",
+          "required": false,
+          "type": "string",
+          "format": null,
+          "ref": null,
+          "nullable": false,
+          "items": null,
+          "mapValue": null,
+          "variants": null
+        },
+        {
+          "name": "info",
+          "required": false,
+          "type": "object",
+          "format": null,
+          "ref": null,
+          "nullable": false,
+          "items": null,
+          "mapValue": null,
+          "variants": null
+        }
+      ],
+      "values": []
+    },
+    {
+      "name": "ScrapeJsV2Response",
+      "kind": "object",
+      "type": {
+        "type": "object",
+        "format": null,
+        "ref": null,
+        "nullable": false,
+        "items": null,
+        "mapValue": null,
+        "variants": null
+      },
+      "properties": [
+        {
+          "name": "body",
+          "required": false,
+          "type": "string",
+          "format": null,
+          "ref": null,
+          "nullable": false,
+          "items": null,
+          "mapValue": null,
+          "variants": null
+        },
+        {
+          "name": "info",
+          "required": false,
+          "type": "object",
+          "format": null,
+          "ref": null,
+          "nullable": false,
+          "items": null,
+          "mapValue": null,
+          "variants": null
+        }
+      ],
+      "values": []
+    },
+    {
+      "name": "ScrapeJsViewport",
+      "kind": "object",
+      "type": {
+        "type": "object",
+        "format": null,
+        "ref": null,
+        "nullable": false,
+        "items": null,
+        "mapValue": null,
+        "variants": null
+      },
+      "properties": [
+        {
+          "name": "deviceScaleFactor",
+          "required": false,
+          "type": "integer",
+          "format": null,
+          "ref": null,
+          "nullable": false,
+          "items": null,
+          "mapValue": null,
+          "variants": null
+        },
+        {
+          "name": "hasTouch",
+          "required": false,
+          "type": "boolean",
+          "format": null,
+          "ref": null,
+          "nullable": false,
+          "items": null,
+          "mapValue": null,
+          "variants": null
+        },
+        {
+          "name": "height",
+          "required": false,
+          "type": "integer",
+          "format": null,
+          "ref": null,
+          "nullable": false,
+          "items": null,
+          "mapValue": null,
+          "variants": null
+        },
+        {
+          "name": "isLandscape",
+          "required": false,
+          "type": "boolean",
+          "format": null,
+          "ref": null,
+          "nullable": false,
+          "items": null,
+          "mapValue": null,
+          "variants": null
+        },
+        {
+          "name": "isMobile",
+          "required": false,
+          "type": "boolean",
+          "format": null,
+          "ref": null,
+          "nullable": false,
+          "items": null,
+          "mapValue": null,
+          "variants": null
+        },
+        {
+          "name": "width",
+          "required": false,
+          "type": "integer",
+          "format": null,
+          "ref": null,
+          "nullable": false,
+          "items": null,
+          "mapValue": null,
+          "variants": null
+        }
+      ],
+      "values": []
+    },
+    {
+      "name": "ScrapeResponse",
+      "kind": "object",
+      "type": {
+        "type": "object",
+        "format": null,
+        "ref": null,
+        "nullable": false,
+        "items": null,
+        "mapValue": null,
+        "variants": null
+      },
+      "properties": [
+        {
+          "name": "body",
+          "required": false,
+          "type": "string",
+          "format": null,
+          "ref": null,
+          "nullable": false,
+          "items": null,
+          "mapValue": null,
+          "variants": null
+        },
+        {
+          "name": "info",
+          "required": false,
+          "type": "object",
+          "format": null,
+          "ref": null,
+          "nullable": false,
+          "items": null,
+          "mapValue": null,
+          "variants": null
+        }
+      ],
+      "values": []
+    }
+  ],
+  "transport": {
+    "engine": "httpx",
+    "implementation": "httpx"
+  },
+  "documentation": {
+    "depth": "full",
+    "operations": [
+      {
+        "id": "scrape",
+        "method": "post",
+        "path": "/scrape",
+        "summary": "Scrapes a URL using Chrome browser TLS fingerprinting without executing JavaScript. Use this endpoint for pages that do not require client-side rendering, and set `headers`, `geo`, or `proxy` to customize the request. The response includes the HTML body and request metadata.",
+        "description": "Use high-performance web scraping endpoint with Chrome browser TLS fingerprint, but without JavaScript execution and real browser overhead.",
+        "deprecated": false,
+        "deprecationMessage": null,
+        "parameters": []
+      },
+      {
+        "id": "scrapeJs",
+        "method": "post",
+        "path": "/scrape-js",
+        "summary": "Scrapes a URL with a real Chrome browser engine to render JavaScript-dependent pages. Use this endpoint when `/scrape` does not retrieve the required page content; set `waitForSelector` or `postWaitTime` when you need to control when page loading is considered complete. The response includes the rendered HTML and browser metadata.",
+        "description": "Launches real Chrome browser engine, use only when /scrape endpoint features are not enough.",
+        "deprecated": false,
+        "deprecationMessage": null,
+        "parameters": []
+      },
+      {
+        "id": "scrapeJsV2",
+        "method": "post",
+        "path": "/v2/scrape-js",
+        "summary": "Scrapes a URL with the newer real Chrome browser engine to render JavaScript-dependent pages. Use this endpoint when browser rendering is required, including for sites protected by services such as Cloudflare, Datadome, Kasada, or PerimeterX. Access is available only through APIRoad.",
+        "description": "Launches real Chrome browser engine, better success rate for websites protected by Cloudflare, Datadome, Kasada, PermimeterX. ATTENTION: Only available via APIRoad!",
+        "deprecated": false,
+        "deprecationMessage": null,
+        "parameters": []
+      }
+    ],
+    "models": []
+  }
+}
