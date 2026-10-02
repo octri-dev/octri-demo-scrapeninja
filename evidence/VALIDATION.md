@@ -15,6 +15,8 @@ The SDK suite exercised all 3 operations in each language against local HTTP ser
 
 The original targeted demo also passes in Python and TypeScript. Built wheel and npm archives were installed in fresh environments. Each installed client passed import, a high-level call, authentication-header capture, 401 error/request-ID handling, a 429 retry followed by success, and timeout handling. See `installed-python-results.json` and `installed-typescript-results.json`.
 
+The documented verification command also passed from a fresh clone with a new virtual environment and locked npm installs. See `clean-checkout-results.json`.
+
 ## Repairs made after the broader test run
 
 - The public JS-scraping response schema requires `info.screenshot` and `info.pageCookies` without defining their types. Generated fixtures omitted both. The demo fixtures now include `null` placeholders, which are permitted for these undeclared property schemas; Python preserves them as extra fields rather than dropping them. Required-field validation remains enabled. This does not establish the live fields' real types.
