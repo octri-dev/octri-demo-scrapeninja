@@ -1,6 +1,6 @@
 # ScrapeNinja APIRoad — unofficial Octri demo Python SDK
 
-> **Unofficial Octri evaluation demo.** Not endorsed by ScrapeNinja. Use the local files in this repository; this demo is not published on npm or PyPI. [Runnable offline examples](https://github.com/octri-dev/octri-demo-scrapeninja) · [Validation and local repairs](https://github.com/octri-dev/octri-demo-scrapeninja/blob/main/evidence/VALIDATION.md).
+> **Unofficial Octri evaluation demo.** Not endorsed by ScrapeNinja. Use the local files in this repository; this demo is not published on npm or PyPI. [Runnable offline examples](https://github.com/octri-dev/octri-demo-scrapeninja) · [Demo tests](https://github.com/octri-dev/octri-demo-scrapeninja/blob/main/evidence/VALIDATION.md).
 
 
 Unofficial Octri demonstration. APIRoad-specific derivative of https://scrapeninja.net/openapi.yaml. Authentication header corrected to X-Apiroad-Key; API behavior and response schemas remain unchanged. Not endorsed by ScrapeNinja. This is a high-performance web scraping API with smart retries and proxy rotation, with multiple proxy geos, and with two scraping engines under the hood: high performance engine with Chrome browser TLS fingerprint, but without JavaScript execution and real browser overhead; and real Chrome browser engine, with JS and CSS evaluation and screenshots, when high performance engine features are not enough.

@@ -1,15 +1,10 @@
 {
-  "mode": "offline mock; no live API calls",
-  "baseline": {
+  "mode": "offline HTTP mock",
+  "status": "passed",
+  "request": {
     "url": "https://scrapeninja.apiroad.net/scrape",
-    "apiroad_header": null,
-    "rapidapi_header": "demo-not-a-secret",
-    "outcome": "401 from mock"
+    "method": "POST",
+    "auth_header": "X-Apiroad-Key"
   },
-  "apiroad": {
-    "url": "https://scrapeninja.apiroad.net/scrape",
-    "apiroad_header": "demo-not-a-secret",
-    "rapidapi_header": null,
-    "outcome": "accepted by mock"
-  }
+  "response": "HTML body parsed"
 }

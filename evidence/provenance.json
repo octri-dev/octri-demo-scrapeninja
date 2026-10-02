@@ -3,23 +3,17 @@
   "created_by": "Octri; unofficial evaluation demo",
   "spec_source": "https://scrapeninja.net/openapi.yaml",
   "spec_sha256": "991ac1122634a887ec0c2ada774f997875804fded2b2f5f9e094ea5ed6e83a00",
-  "verification": "Full local SDK tests, type/lint/format/build/package checks, clean install checks, and offline mocks. No live API calls.",
-  "generated_sources": "Octri SDK Studio output with local validation repairs documented in evidence/VALIDATION.md",
+  "verification": "Local contract checks, package installation, and live API authentication-response checks.",
+  "generated_sources": "SDK src/ files match the referenced Octri SDK Studio ZIPs byte-for-byte.",
   "artifacts": {
     "scrapeninja-apiroad-python.zip": {
       "sha256": "fc1d76ae3895f857b3805d2d0e9ccf503bdab65123fc603b835245766379b43d"
     },
     "scrapeninja-apiroad-typescript.zip": {
       "sha256": "3ab1ca2b9294804fcb5d59eff5f2309913a658bdfa381aec728b845b0f449673"
-    },
-    "scrapeninja-python.zip": {
-      "sha256": "78734bb3c38fa45d79974034ac831c28b34ce3723c9f02853fba92a930cf1d1e"
-    },
-    "scrapeninja-typescript.zip": {
-      "sha256": "d2fa786207db393ee12adafc1cad35d84576d8041cb4de824c8164d8921f4de8"
     }
   },
-  "baseline_octri_build": "6abfa36f151d90761a94a28d",
   "apiroad_octri_build": "6abfa615151d90761a94a636",
-  "build_note": "Force rebuild retains Octri build version 1.0.0; derivative source version is 1.0.1-octri-demo. Only Python and TypeScript downloaded and tested."
+  "build_note": "Source spec version 1.0.1-octri-demo; SDK Studio force-build package version 1.0.0.",
+  "authenticated_success": "pending valid provider key"
 }

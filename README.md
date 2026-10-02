@@ -1,23 +1,14 @@
-# ScrapeNinja: an unofficial Octri SDK demonstration
+# ScrapeNinja SDK demo with Octri
 
 [![Demo validation](https://github.com/octri-dev/octri-demo-scrapeninja/actions/workflows/demo-validation.yml/badge.svg)](https://github.com/octri-dev/octri-demo-scrapeninja/actions/workflows/demo-validation.yml)
 
-**An APIRoad-specific authentication example, with generated Python and TypeScript SDKs and offline reproductions.** Created by Octri for evaluation. Not an official ScrapeNinja SDK, not endorsed by ScrapeNinja, and not published to a package registry.
+Python and TypeScript SDKs generated with [Octri](https://octri.dev) from ScrapeNinja's OpenAPI specification. This example uses the APIRoad server and its `X-Apiroad-Key` authentication scheme.
 
-## The observation
+The clients provide typed requests and responses, resource namespaces, HTTP error classes, configurable retries, and timeouts. The SDK `src/` files match the original Octri-generated artifacts.
 
-[ScrapeNinja's public OpenAPI document](https://scrapeninja.net/openapi.yaml) lists `https://scrapeninja.apiroad.net` as its first server. Its prose tells APIRoad users to replace `X-RapidAPI-Key` with `X-Apiroad-Key`, but its machine-readable `ApiKeyAuth` scheme still specifies `X-RapidAPI-Key`.
+Independent demonstration; not an official ScrapeNinja package.
 
-The SDKs generated directly from that spec send `X-RapidAPI-Key` when configured with the spec's APIRoad server. A separate APIRoad-only derivative declares `X-Apiroad-Key`. Regenerating in Octri produces clients that send that header instead, without editing generated source code.
-
-| Client generated from | Header captured in Python and TypeScript | Offline mock result |
-|---|---|---|
-| Upstream spec | `X-RapidAPI-Key` | 401 |
-| APIRoad-specific derivative | `X-Apiroad-Key` | 200; HTML response parsed |
-
-**These statuses come from a mock enforcing the documented APIRoad header requirement. They are not live ScrapeNinja responses.** No real API keys were used; live service behavior, latency, retries, and production readiness are unverified. We do not know whether APIRoad also accepts the alternate header. The concrete finding is the inconsistency between prose and the declared security scheme.
-
-## Try it locally
+## Run the example
 
 Requires Python 3.10+ and Node.js 22.12+.
 
@@ -26,35 +17,70 @@ git clone https://github.com/octri-dev/octri-demo-scrapeninja.git
 cd octri-demo-scrapeninja
 python3 -m venv .venv
 .venv/bin/python -m pip install -r requirements.txt
-.venv/bin/python demos/check-python.py
 npm ci --ignore-scripts
+.venv/bin/python demos/check-python.py
 npm run check:typescript
 ```
 
-The TypeScript command compiles both complete generated SDKs, then intercepts their HTTP requests. The Python command injects an `httpx.MockTransport` into each generated client. Both commands make zero live API calls and use the placeholder `demo-not-a-secret`.
+These offline examples exercise the generated client's request serialization, authentication header, and HTML response parsing without needing credentials.
 
-Client classes in these builds require the base URL in their constructor config. The examples set it explicitly; do the same when integrating. These are local demos: distribution names explicitly identify them as Octri demos; the npm packages are marked private.
+## Call the live API
 
-## What is included
+Set `SCRAPENINJA_API_KEY` to your APIRoad key in your environment, then run:
 
-- [`specs/upstream.json`](specs/upstream.json): JSON conversion of the public YAML, captured October 2, 2026.
-- [`specs/apiroad-demo.json`](specs/apiroad-demo.json): APIRoad-only derivative. Changes are the security header, server list, and clearly unofficial title/version/description. Endpoint and response schemas are unchanged.
-- [`sdks/baseline`](sdks/baseline): Octri Python and TypeScript output, with documented local demo repairs from the upstream spec.
-- [`sdks/apiroad`](sdks/apiroad): regenerated output, with documented local demo repairs from the derivative.
-- [`evidence`](evidence): recorded results and source provenance.
+```sh
+.venv/bin/python demos/live-python.py
+node demos/live-typescript.cjs
+```
 
-The derivative intentionally removes RapidAPI as a server. A long-term upstream solution should model the two authentication variants clearly; changing the header globally would be inappropriate for RapidAPI users.
+Each command makes one real scrape request for `https://example.com` and checks that the SDK returns an HTML body. API usage follows your provider plan. Keys stay in the environment and are not included in the result.
 
-The public spec also declares only successful responses for these three operations. Ask the team for its actual error contract before adding error schemas; this demo does not invent them.
+To test the real authentication/error response without a key:
 
-## A useful conversation with the team
+```sh
+.venv/bin/python demos/live-python.py --auth-only
+node demos/live-typescript.cjs --auth-only
+```
 
-“Your spec has a small inconsistency between the default APIRoad server and its authentication scheme. I prepared an APIRoad-specific Python/TypeScript demo and a before/after test. Is this a real friction point for customers, and would maintaining both gateway variants from one source be useful?”
+[Live test status](evidence/VALIDATION.md): authentication responses checked in both languages; successful authenticated calls await a valid provider key.
 
-A good pilot would cover a team-approved auth model, one customer-selected language, one real integration, and regeneration after an API change. The goal is evidence that this saves the team maintenance work.
+## SDK usage
 
-[Octri](https://octri.dev) · [Public source API](https://scrapeninja.net) · [Provenance](evidence/provenance.json)
+```python
+import asyncio
+import os
+from sdk import ScrapeNinjaAPIRoadUnofficialOctriDemo
+from sdk.client import ClientConfig, ClientAuthConfig
 
-## Demo readiness
+async def main():
+    config = ClientConfig(
+        base_url="https://scrapeninja.apiroad.net",
+        auth=ClientAuthConfig(api_key_auth=os.environ["SCRAPENINJA_API_KEY"]),
+    )
+    try:
+        result = await ScrapeNinjaAPIRoadUnofficialOctriDemo(config).scrape.scrape(
+            url="https://example.com"
+        )
+        print(result.body)
+    finally:
+        await config.aclose()
 
-The complete SDK suites, lint, format, type checks, builds, package creation, and clean-install smoke tests were checked before sharing. See [the validation report](evidence/VALIDATION.md) for exact counts, commands, local repairs, and limits. The current source includes those repairs; original Octri ZIP hashes remain in provenance for comparison.
+asyncio.run(main())
+```
+
+Install the Python SDK locally from `sdks/apiroad/python`, or build the TypeScript package in `sdks/apiroad/typescript`. These demo distributions are not published to npm or PyPI.
+
+## Checks and source
+
+```sh
+.venv/bin/python -m pip install -r requirements-dev.txt
+.venv/bin/python demos/verify.py
+```
+
+The verification command covers SDK tests, formatting, lint, type checks, package builds, and the offline examples. Live calls are separate and never run automatically in CI.
+
+- [Python SDK](sdks/apiroad/python)
+- [TypeScript SDK](sdks/apiroad/typescript)
+- [OpenAPI configuration](specs/apiroad-demo.json)
+- [Original public specification](https://scrapeninja.net/openapi.yaml)
+- [Generation provenance](evidence/provenance.json)

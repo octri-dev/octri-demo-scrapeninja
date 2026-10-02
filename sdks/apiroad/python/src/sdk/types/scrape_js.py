@@ -44,7 +44,7 @@ class ScrapeJsResponseInfoCatchedAjax(BaseModel):
 
 
 class ScrapeJsResponseInfo(BaseModel):
-    model_config = ConfigDict(populate_by_name=True, arbitrary_types_allowed=True, extra="allow")
+    model_config = ConfigDict(populate_by_name=True, arbitrary_types_allowed=True)
 
     status_code: int = Field(alias="statusCode")
     """@example 200"""
@@ -109,7 +109,7 @@ class ScrapeJsV2ResponseInfoCatchedAjax(BaseModel):
 
 
 class ScrapeJsV2ResponseInfo(BaseModel):
-    model_config = ConfigDict(populate_by_name=True, arbitrary_types_allowed=True, extra="allow")
+    model_config = ConfigDict(populate_by_name=True, arbitrary_types_allowed=True)
 
     status_code: int = Field(alias="statusCode")
     """@example 200"""
