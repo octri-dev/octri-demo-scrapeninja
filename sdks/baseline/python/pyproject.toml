@@ -1,5 +1,5 @@
 [project]
-name = "scrapeninja_web_scraping_api"
+name = "octri-demo-scrapeninja-baseline"
 version = "1.0.0"
 requires-python = ">=3.10"
 dependencies = ["httpx>=0.24.0", "pydantic>=2.0", "typing-extensions>=4.6"]

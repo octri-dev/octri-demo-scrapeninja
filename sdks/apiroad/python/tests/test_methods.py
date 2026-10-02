@@ -15,7 +15,7 @@ from typing import Any
 
 import pytest
 
-import sdk as sdk
+import sdk
 from sdk.wire import to_wire
 
 CASES = json.loads(

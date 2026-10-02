@@ -1,5 +1,5 @@
 {
-  "name": "sdk",
+  "name": "@octri-dev/octri-demo-scrapeninja-apiroad",
   "description": "Unofficial Octri demonstration. APIRoad-specific derivative of https://scrapeninja.net/openapi.yaml. Authentication header corrected to X-Apiroad-Key; API behavior and response schemas remain unchanged. Not endorsed by ScrapeNinja. This is a high-performance web scraping API with smart retries and proxy rotation, with multiple proxy geos, and with two scraping engines under the hood: high performance engine with Chrome browser TLS fingerprint, but without JavaScript execution and real browser overhead; and real Chrome browser engine, with JS and CSS evaluation and screenshots, when high performance engine features are not enough.\n\nScrapeNinja API is available on two marketplace platforms: RapidAPI and APIRoad.\nTo get your API key, go to https://rapidapi.com/restyler/api/scrapeninja or https://apiroad.net/marketplace/apis/scrapeninja\nIf you prefer to use APIRoad, you will need to replace API key name from `X-RapidAPI-Key` to `X-Apiroad-Key`.",
   "version": "1.0.0",
   "main": "./dist/index.js",
@@ -32,5 +32,9 @@
     "oxfmt": "^0.59.0",
     "oxlint": "^1.0.0",
     "typescript": "^5.4.0"
+  },
+  "private": true,
+  "engines": {
+    "node": ">=22.12.0"
   }
 }

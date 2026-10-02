@@ -1,5 +1,7 @@
 # ScrapeNinja: an unofficial Octri SDK demonstration
 
+[![Demo validation](https://github.com/octri-dev/octri-demo-scrapeninja/actions/workflows/demo-validation.yml/badge.svg)](https://github.com/octri-dev/octri-demo-scrapeninja/actions/workflows/demo-validation.yml)
+
 **An APIRoad-specific authentication example, with generated Python and TypeScript SDKs and offline reproductions.** Created by Octri for evaluation. Not an official ScrapeNinja SDK, not endorsed by ScrapeNinja, and not published to a package registry.
 
 ## The observation
@@ -17,7 +19,7 @@ The SDKs generated directly from that spec send `X-RapidAPI-Key` when configured
 
 ## Try it locally
 
-Requires Python 3.10+ and Node.js 20+.
+Requires Python 3.10+ and Node.js 22.12+.
 
 ```sh
 git clone https://github.com/octri-dev/octri-demo-scrapeninja.git
@@ -31,14 +33,14 @@ npm run check:typescript
 
 The TypeScript command compiles both complete generated SDKs, then intercepts their HTTP requests. The Python command injects an `httpx.MockTransport` into each generated client. Both commands make zero live API calls and use the placeholder `demo-not-a-secret`.
 
-Client classes in these builds require the base URL in their constructor config. The examples set it explicitly; do the same when integrating. These are local demos: package metadata retains generator output and must be reviewed and renamed before any registry release.
+Client classes in these builds require the base URL in their constructor config. The examples set it explicitly; do the same when integrating. These are local demos: distribution names explicitly identify them as Octri demos; the npm packages are marked private.
 
 ## What is included
 
 - [`specs/upstream.json`](specs/upstream.json): JSON conversion of the public YAML, captured October 2, 2026.
 - [`specs/apiroad-demo.json`](specs/apiroad-demo.json): APIRoad-only derivative. Changes are the security header, server list, and clearly unofficial title/version/description. Endpoint and response schemas are unchanged.
-- [`sdks/baseline`](sdks/baseline): unedited Octri Python and TypeScript output from the upstream spec.
-- [`sdks/apiroad`](sdks/apiroad): unedited regenerated output from the derivative.
+- [`sdks/baseline`](sdks/baseline): Octri Python and TypeScript output, with documented local demo repairs from the upstream spec.
+- [`sdks/apiroad`](sdks/apiroad): regenerated output, with documented local demo repairs from the derivative.
 - [`evidence`](evidence): recorded results and source provenance.
 
 The derivative intentionally removes RapidAPI as a server. A long-term upstream solution should model the two authentication variants clearly; changing the header globally would be inappropriate for RapidAPI users.
@@ -52,3 +54,7 @@ The public spec also declares only successful responses for these three operatio
 A good pilot would cover a team-approved auth model, one customer-selected language, one real integration, and regeneration after an API change. The goal is evidence that this saves the team maintenance work.
 
 [Octri](https://octri.dev) · [Public source API](https://scrapeninja.net) · [Provenance](evidence/provenance.json)
+
+## Demo readiness
+
+The complete SDK suites, lint, format, type checks, builds, package creation, and clean-install smoke tests were checked before sharing. See [the validation report](evidence/VALIDATION.md) for exact counts, commands, local repairs, and limits. The current source includes those repairs; original Octri ZIP hashes remain in provenance for comparison.

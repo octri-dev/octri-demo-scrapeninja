@@ -166,7 +166,9 @@
             "headers": [
               "content-type: xxx",
               "header2: val2"
-            ]
+            ],
+            "screenshot": null,
+            "pageCookies": null
           },
           "body": "<html><body><h1>Hello World!</h1></body></html>"
         },
@@ -389,7 +391,9 @@
             "headers": [
               "content-type: xxx",
               "header2: val2"
-            ]
+            ],
+            "screenshot": null,
+            "pageCookies": null
           },
           "body": "<html><body><h1>Hello World!</h1></body></html>"
         },

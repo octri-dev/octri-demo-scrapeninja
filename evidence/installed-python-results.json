@@ -1,0 +1,29 @@
+{
+  "mode": "installed wheels, offline mocks; no live API calls",
+  "results": [
+    {
+      "package": "scrapeninja_web_scraping_api",
+      "checks": [
+        "installed wheel import",
+        "high-level request and response",
+        "correct auth header",
+        "401 classification and request ID",
+        "429 retries then succeeds",
+        "timeout classification"
+      ],
+      "status": "passed"
+    },
+    {
+      "package": "sdk",
+      "checks": [
+        "installed wheel import",
+        "high-level request and response",
+        "correct auth header",
+        "401 classification and request ID",
+        "429 retries then succeeds",
+        "timeout classification"
+      ],
+      "status": "passed"
+    }
+  ]
+}

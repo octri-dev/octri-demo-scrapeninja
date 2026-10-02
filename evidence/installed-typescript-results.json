@@ -1,0 +1,29 @@
+{
+  "mode": "installed npm archives, offline mocks; no live API calls",
+  "results": [
+    {
+      "package": "@octri-dev/octri-demo-scrapeninja-baseline",
+      "checks": [
+        "installed npm archive import",
+        "high-level request and response",
+        "correct auth header",
+        "401 classification and request ID",
+        "429 retries then succeeds",
+        "timeout classification"
+      ],
+      "status": "passed"
+    },
+    {
+      "package": "@octri-dev/octri-demo-scrapeninja-apiroad",
+      "checks": [
+        "installed npm archive import",
+        "high-level request and response",
+        "correct auth header",
+        "401 classification and request ID",
+        "429 retries then succeeds",
+        "timeout classification"
+      ],
+      "status": "passed"
+    }
+  ]
+}

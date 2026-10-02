@@ -26,7 +26,9 @@
         "encoderKind": "json",
         "required": true,
         "bodyShape": "fields",
-        "requiredFields": ["url"],
+        "requiredFields": [
+          "url"
+        ],
         "fields": [
           {
             "wireName": "url",
@@ -117,13 +119,20 @@
           "url": "https://example.com",
           "waitForSelector": "h1.some-class",
           "postWaitTime": 5,
-          "headers": ["X-Header: some-random-header"],
+          "headers": [
+            "X-Header: some-random-header"
+          ],
           "retryNum": 1,
           "geo": "eu",
           "proxy": "http://user:pw@host:port",
           "timeout": 8,
-          "textNotExpected": ["random-captcha-text-which-might-appear"],
-          "statusNotExpected": [403, 429],
+          "textNotExpected": [
+            "random-captcha-text-which-might-appear"
+          ],
+          "statusNotExpected": [
+            403,
+            429
+          ],
           "blockImages": true,
           "blockMedia": true,
           "screenshot": true,
@@ -143,7 +152,10 @@
             "catchedAjax": {
               "url": "https://example.com/api/data.json",
               "method": "GET",
-              "headers": ["content-type: xxx", "header2: val2"],
+              "headers": [
+                "content-type: xxx",
+                "header2: val2"
+              ],
               "body": "<html><body><h1>Hello World!</h1></body></html>",
               "bodyIframe": "<html><body><h1>Iframe content</h1></body></html>",
               "status": 200,
@@ -151,7 +163,12 @@
                 "content-type": "application/json"
               }
             },
-            "headers": ["content-type: xxx", "header2: val2"]
+            "headers": [
+              "content-type: xxx",
+              "header2: val2"
+            ],
+            "screenshot": null,
+            "pageCookies": null
           },
           "body": "<html><body><h1>Hello World!</h1></body></html>"
         },
@@ -192,7 +209,9 @@
         "encoderKind": "json",
         "required": true,
         "bodyShape": "fields",
-        "requiredFields": ["url"],
+        "requiredFields": [
+          "url"
+        ],
         "fields": [
           {
             "wireName": "url",
@@ -316,13 +335,20 @@
           "dumpIframe": "icims_content_iframe",
           "waitForSelectorIframe": ".iCIMS_PagingBatch",
           "extractorTargetIframe": true,
-          "headers": ["X-Header: some-random-header"],
+          "headers": [
+            "X-Header: some-random-header"
+          ],
           "retryNum": 1,
           "geo": "eu",
           "proxy": "http://user:pw@host:port",
           "timeout": 8,
-          "textNotExpected": ["random-captcha-text-which-might-appear"],
-          "statusNotExpected": [403, 429],
+          "textNotExpected": [
+            "random-captcha-text-which-might-appear"
+          ],
+          "statusNotExpected": [
+            403,
+            429
+          ],
           "blockImages": true,
           "blockMedia": true,
           "screenshot": true,
@@ -351,7 +377,10 @@
             "catchedAjax": {
               "url": "https://example.com/api/data.json",
               "method": "GET",
-              "headers": ["content-type: xxx", "header2: val2"],
+              "headers": [
+                "content-type: xxx",
+                "header2: val2"
+              ],
               "body": "<html><body><h1>Hello World!</h1></body></html>",
               "bodyIframe": "<html><body><h1>Iframe content</h1></body></html>",
               "status": 200,
@@ -359,7 +388,12 @@
                 "content-type": "application/json"
               }
             },
-            "headers": ["content-type: xxx", "header2: val2"]
+            "headers": [
+              "content-type: xxx",
+              "header2: val2"
+            ],
+            "screenshot": null,
+            "pageCookies": null
           },
           "body": "<html><body><h1>Hello World!</h1></body></html>"
         },
@@ -400,7 +434,9 @@
         "encoderKind": "json",
         "required": true,
         "bodyShape": "fields",
-        "requiredFields": ["url"],
+        "requiredFields": [
+          "url"
+        ],
         "fields": [
           {
             "wireName": "url",
@@ -465,14 +501,21 @@
         ],
         "example": {
           "url": "https://example.com",
-          "headers": ["X-Header: some-random-header"],
+          "headers": [
+            "X-Header: some-random-header"
+          ],
           "retryNum": 1,
           "geo": "eu",
           "proxy": "http://user:pw@host:port",
           "followRedirects": 0,
           "timeout": 8,
-          "textNotExpected": ["random-captcha-text-which-might-appear"],
-          "statusNotExpected": [403, 429],
+          "textNotExpected": [
+            "random-captcha-text-which-might-appear"
+          ],
+          "statusNotExpected": [
+            403,
+            429
+          ],
           "extractor": "function(input, cheerio) {\n    let $ = cheerio.load(input);\n return $('h1.title').text(); } "
         }
       }
@@ -486,7 +529,10 @@
           "info": {
             "statusCode": 200,
             "finalUrl": "https://example.com/url",
-            "headers": ["content-type: xxx", "header2: val2"]
+            "headers": [
+              "content-type: xxx",
+              "header2: val2"
+            ]
           },
           "body": "<html><body><h1>Hello World!</h1></body></html>"
         },

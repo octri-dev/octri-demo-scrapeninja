@@ -1,18 +1,26 @@
 # ScrapeNinja Web Scraping API TypeScript SDK
 
+> **Unofficial Octri evaluation demo.** Not endorsed by ScrapeNinja. Use the local files in this repository; this demo is not published on npm or PyPI. [Runnable offline examples](../../../README.md) · [Validation and local repairs](../../../evidence/VALIDATION.md).
+
+
 This is a high-performance web scraping API with smart retries and proxy rotation, with multiple proxy geos, and with two scraping engines under the hood: high performance engine with Chrome browser TLS fingerprint, but without JavaScript execution and real browser overhead; and real Chrome browser engine, with JS and CSS evaluation and screenshots, when high performance engine features are not enough.
 
 ScrapeNinja API is available on two marketplace platforms: RapidAPI and APIRoad.
 To get your API key, go to https://rapidapi.com/restyler/api/scrapeninja or https://apiroad.net/marketplace/apis/scrapeninja
 If you prefer to use APIRoad, you will need to replace API key name from `X-RapidAPI-Key` to `X-Apiroad-Key`.
 
-> Package `scrapeninja-web-scraping-api` · Version `1.0.0` · 3 operations
+> Package `@octri-dev/octri-demo-scrapeninja-baseline` · Version `1.0.0` · 3 operations
 
 ## Installation
 
+From this SDK directory:
+
 ```sh
-npm install scrapeninja-web-scraping-api@1.0.0
+npm ci --ignore-scripts
+npm run build
 ```
+
+Import this demo from its local `dist/index.js`. The package is marked private to prevent accidental registry publication.
 
 ## Quickstart
 
@@ -69,7 +77,7 @@ An operation that declares error models also exports `<Operation>Error`, the uni
 ## Local mock-server tests
 
 Generated SDK includes schema-derived, zero-dependency mock server and network
-contract suite. Node.js 20+ required. Contract probes use authored response
+contract suite. Node.js 22.12+ required. Contract probes use authored response
 examples only; schema-synthesized routes remain available to the local server.
 
 `./scripts/mock --port 4010` starts server. `./scripts/test` runs the mock contract suite, then native SDK tests. A zero-authored-example contract run succeeds with an explicit zero-test

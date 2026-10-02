@@ -3,8 +3,8 @@
   "created_by": "Octri; unofficial evaluation demo",
   "spec_source": "https://scrapeninja.net/openapi.yaml",
   "spec_sha256": "991ac1122634a887ec0c2ada774f997875804fded2b2f5f9e094ea5ed6e83a00",
-  "verification": "local compilation and offline mocks only; no live API calls",
-  "generated_sources": "Unedited Octri SDK Studio output",
+  "verification": "Full local SDK tests, type/lint/format/build/package checks, clean install checks, and offline mocks. No live API calls.",
+  "generated_sources": "Octri SDK Studio output with local validation repairs documented in evidence/VALIDATION.md",
   "artifacts": {
     "scrapeninja-apiroad-python.zip": {
       "sha256": "fc1d76ae3895f857b3805d2d0e9ccf503bdab65123fc603b835245766379b43d"
